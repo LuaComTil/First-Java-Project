@@ -1,7 +1,6 @@
 package com.lfr.investments.controller;
 
-public record CreateUserDto(String username,
-                            String email,
+public record UpdateUserDto(String username,
                             String password
                             ) {
 }
