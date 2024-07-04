@@ -1,5 +1,9 @@
 package com.lfr.investments.controller;
 
+import com.lfr.investments.controller.dto.AccountResponseDto;
+import com.lfr.investments.controller.dto.CreateAccountDto;
+import com.lfr.investments.controller.dto.CreateUserDto;
+import com.lfr.investments.controller.dto.UpdateUserDto;
 import com.lfr.investments.entity.User;
 import com.lfr.investments.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -7,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/users")
 public class UserController {
-
     private UserService userService;
 
     public UserController(UserService userService) {
@@ -53,5 +55,18 @@ public class UserController {
     public ResponseEntity<Void> deleteById(@PathVariable("userId") String userId) {
         userService.deleteById(userId);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{userId}/accounts")
+    public ResponseEntity<Void> deleteById(@PathVariable("userId") String userId,
+                                           @RequestBody CreateAccountDto createAccountDto) {
+        userService.createAccount(userId, createAccountDto);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{userId}/accounts")
+    public ResponseEntity<List<AccountResponseDto>> listAccounts(@PathVariable("userId") String userId) {
+        var accounts = userService.listAccounts(userId);
+        return ResponseEntity.ok(accounts);
     }
 }

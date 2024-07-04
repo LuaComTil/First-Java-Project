@@ -1,7 +1,7 @@
 package com.lfr.investments.service;
 
-import com.lfr.investments.controller.CreateUserDto;
-import com.lfr.investments.controller.UpdateUserDto;
+import com.lfr.investments.controller.dto.CreateUserDto;
+import com.lfr.investments.controller.dto.UpdateUserDto;
 import com.lfr.investments.entity.User;
 import com.lfr.investments.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
