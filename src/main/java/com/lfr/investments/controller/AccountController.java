@@ -19,7 +19,7 @@ public class AccountController {
 
     @PostMapping("/{accountId}/stocks")
     public ResponseEntity<Void> associateStock(@PathVariable("accountId") String accountId,
-                                           @RequestBody AssociateAccountStockDto associateAccountStockDto) {
+                                               @RequestBody AssociateAccountStockDto associateAccountStockDto) {
         accountService.associateStock(accountId, associateAccountStockDto);
         return ResponseEntity.ok().build();
     }

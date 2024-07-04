@@ -16,7 +16,7 @@ public class AccountStockId {
     public AccountStockId() {
     }
 
-    public AccountStockId(UUID accountId, String stockId) {
+    public AccountStockId(UUID accountId,String stockId) {
         this.accountId = accountId;
         this.stockId = stockId;
     }

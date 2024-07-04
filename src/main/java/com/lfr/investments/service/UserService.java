@@ -30,7 +30,7 @@ public class UserService {
     public UserService(UserRepository userRepository,
                        AccountRepository accountRepository,
                        BillingAddressRepository billingAddressRepository
-                        ) {
+        ) {
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
         this.billingAddressRepository = billingAddressRepository;
@@ -57,8 +57,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void updateUserById(String userId,
-                               UpdateUserDto updateUserDto) {
+    public void updateUserById(String userId, UpdateUserDto updateUserDto) {
         var id = UUID.fromString(userId);
         userRepository.existsById(id);
         var userEntity = userRepository.findById(id);

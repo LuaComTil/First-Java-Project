@@ -24,13 +24,15 @@ public class AccountService {
     public AccountService(AccountRepository accountRepository,
                           StockRepository stockRepository,
                           AccountStockRepository accountStockRepository
-                            ){
+        ){
         this.accountRepository = accountRepository;
         this.stockRepository = stockRepository;
         this.accountStockRepository = accountStockRepository;
     }
 
-    public void associateStock(String accountId, AssociateAccountStockDto associateAccountStockDto) {
+    public void associateStock(String accountId,
+                               AssociateAccountStockDto associateAccountStockDto)
+    {
         var account = accountRepository.findById(UUID.fromString(accountId))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 

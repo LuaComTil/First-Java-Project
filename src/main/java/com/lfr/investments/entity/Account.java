@@ -26,7 +26,12 @@ public class Account {
     public Account() {
     }
 
-    public Account(UUID accountId, User user, String description, BillingAddress billingAddress, List<AccountStock> accountStocks) {
+    public Account(UUID accountId,
+                   User user,
+                   String description,
+                   BillingAddress billingAddress,
+                   List<AccountStock> accountStocks
+        ) {
         this.accountId = accountId;
         this.user = user;
         this.description = description;

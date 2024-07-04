@@ -24,7 +24,11 @@ public class AccountStock {
     public AccountStock() {
     }
 
-    public AccountStock(AccountStockId id, Account account, Stock stock, Integer quantity) {
+    public AccountStock(AccountStockId id,
+                        Account account,
+                        Stock stock,
+                        Integer quantity
+        ) {
         this.id = id;
         this.account = account;
         this.stock = stock;
