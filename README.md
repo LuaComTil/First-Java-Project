@@ -1,79 +1,84 @@
-Este projeto fornece uma API para gerenciar usuários, contas e ações associadas a essas contas.
+Spring Boot API
 
-## Tecnologias Utilizadas
-**Java** - **Spring Boot** - **Hibernate** - **JPA** - **JUnit** - **Mockito**
+## Structure
+- **Controller Layer**: Handles incoming HTTP requests.<br>
+- **DTOs (Data Transfer Objects)**: Defines request and response structures.<br>
+- **Entities**: Represents the database models.<br>
+- **Repositories**: Interfaces for database access.
 
-# Estrutura do Projeto
+## Requirements
 
-## Controladores
-**AccountController**: Gerencia operações relacionadas a contas.<br>
-**StockController**: Gerencia operações relacionadas a ações.<br>
-**UserController**: Gerencia operações relacionadas a usuários.
+### Install the JDK
+Download and install the recommended version of the JDK from the official Oracle website.<br>
+Verify the installation by running `java -version` in the terminal.
 
-## Serviços
-**AccountService**: Lida com a lógica de negócios para contas.<br>
-**StockService**: Lida com a lógica de negócios para ações.<br>
-**UserService**: Lida com a lógica de negócios para usuários.
+### Install Maven
+Download and install Maven from the official website.<br>
+Verify the installation by running `mvn -version` in the terminal.
 
-## Entidades
-**Account***: Representa uma conta de usuário.<br>
-**AccountStock**: Representa a relação entre contas e ações.<br>
-**BillingAddress**: Representa o endereço de cobrança de uma conta.<br>
-**Stock**: Representa uma ação.<br>
-**User**: Representa um usuário do sistema.<br>
+### Install Docker
+Download and install Docker from the official website.<br>
+Docker Compose is installed along with Docker. Verify the installation by running `docker-compose --version` in the terminal.
 
-## Endpoints
+### Configure the Database
+Any database compatible with JPA/Hibernate (PostgreSQL, MySQL) can be used.<br>
+Configure the credentials and the database URL in the `application.properties` file.
 
-### AccountController
-POST /v1/accounts/{accountId}/stocks: Associa uma ação a uma conta.<br>
-GET /v1/accounts/{accountId}/stocks: Lista as ações associadas a uma conta.
+## Getting Started
 
-### StockController
-POST /v1/stocks: Cria uma nova ação.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/investment-api.git
+    cd investment-api
+    ```
 
-### UserController
-POST /v1/users: Cria um novo usuário.<br>
-GET /v1/users/{userId}: Obtém informações de um usuário por ID.<br>
-GET /v1/users: Lista todos os usuários.<br>
-PUT /v1/users/{userId}: Atualiza informações de um usuário por ID.<br>
-DELETE /v1/users/{userId}: Deleta um usuário por ID.<br>
-POST /v1/users/{userId}/accounts: Cria uma nova conta para um usuário.<br>
-GET /v1/users/{userId}/accounts: Lista todas as contas de um usuário.
+2. **Configure the database**:
+    Update the `src/main/resources/application.properties` file with your database configuration.
 
-# Como Executar o Projeto
+3. **Build the project**:
+    ```bash
+    mvn clean install
+    ```
 
-### Instalar o JDK
-Baixe e instale a versão recomendada do JDK a partir do site oficial da Oracle.
-Verifique a instalação executando `java -version` no terminal.
+4. **Run the application**:
+    ```bash
+    mvn spring-boot:run
+    ```
 
-### Instalar o Maven
-Baixe e instale o Maven a partir do site oficial.
-Verifique a instalação executando `mvn -version` no terminal.
+## API Endpoints
 
-### Installar Docker
-Baixe e instale o Docker a partir do site oficial.
-Docker Compose é instalado junto com o Docker. Verifique a instalação executando docker-compose ```--version``` no terminal.
+- **Create User**: `POST /v1/users`
+    - Request Body: 
+      ```json
+      {
+          "username": "string",
+          "email": "string",
+          "password": "string"
+      }
+      ```
+    - Response: `200 OK`
 
-### Configurar o Banco de Dados
-Qualquer banco de dados compatível com JPA/Hibernate (PostgreSQL, MySQL)<br>
-Configure as credenciais e a URL do banco de dados no arquivo `application.properties`.
+- **List Users**: `GET /v1/users`
+    - Response: List of users
 
-### Clone o repositório:
-```
-git clone https://github.com/seu-usuario/lfr-investments.git
-```
+- **Update User**: `PUT /v1/users/{userId}`
+    - Request Body:
+      ```json
+      {
+          "password": "string"
+      }
+      ```
+    - Response: `200 OK`
 
-### Navegue até o diretório do projeto
-```
-cd Java-Spring-Boot
-```
+- **Delete User**: `DELETE /v1/users/{userId}`
+    - Response: `200 OK`
 
-### Executar o Docker Compose
-```
-docker compose up
-```
-
-### Compile e execute o projeto:
-```
-./mvnw spring-boot:run
-```
+- **Create Investment**: `POST /v1/investments`
+    - Request Body:
+      ```json
+      {
+          "name": "string",
+          "quantity": "number"
+      }
+      ```
+    - Response: `200 OK`
