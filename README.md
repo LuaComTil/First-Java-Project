@@ -1,42 +1,45 @@
-### Este projeto fornece uma API para gerenciar usuários, contas e ações associadas a essas contas. Ele é desenvolvido usando Spring Boot.
+Este projeto fornece uma API para gerenciar usuários, contas e ações associadas a essas contas.
+
+## Tecnologias Utilizadas
+**Java** - **Spring Boot** - **Hibernate** - **JPA** - **JUnit** - **Mockito**
 
 # Estrutura do Projeto
-### Controladores
-AccountController: Gerencia operações relacionadas a contas.
 
-### Serviços
-AccountService: Lida com a lógica de negócios para contas.<br>
-StockService: Lida com a lógica de negócios para ações.<br>
-UserService: Lida com a lógica de negócios para usuários.
+## Controladores
+**AccountController**: Gerencia operações relacionadas a contas.<br>
+**StockController**: Gerencia operações relacionadas a ações.<br>
+**UserController**: Gerencia operações relacionadas a usuários.
 
-### Entidades
-Account: Representa uma conta de usuário.<br>
-AccountStock: Representa a relação entre contas e ações.<br>
-BillingAddress: Representa o endereço de cobrança de uma conta.<br>
-Stock: Representa uma ação.
+## Serviços
+**AccountService**: Lida com a lógica de negócios para contas.<br>
+**StockService**: Lida com a lógica de negócios para ações.<br>
+**UserService**: Lida com a lógica de negócios para usuários.
 
-### Endpoints:
+## Entidades
+**Account***: Representa uma conta de usuário.<br>
+**AccountStock**: Representa a relação entre contas e ações.<br>
+**BillingAddress**: Representa o endereço de cobrança de uma conta.<br>
+**Stock**: Representa uma ação.<br>
+**User**: Representa um usuário do sistema.<br>
+
+## Endpoints
+
+### AccountController
 POST /v1/accounts/{accountId}/stocks: Associa uma ação a uma conta.<br>
-GET /v1/accounts/{accountId}/stocks: Lista as ações associadas a uma conta.<br>
-StockController: Gerencia operações relacionadas a ações.<br>
-<br>
-POST /v1/stocks: Cria uma nova ação.<br>
-UserController: Gerencia operações relacionadas a usuários.<br>
-<br>
+GET /v1/accounts/{accountId}/stocks: Lista as ações associadas a uma conta.
+
+### StockController
+POST /v1/stocks: Cria uma nova ação.
+
+### UserController
 POST /v1/users: Cria um novo usuário.<br>
 GET /v1/users/{userId}: Obtém informações de um usuário por ID.<br>
 GET /v1/users: Lista todos os usuários.<br>
 PUT /v1/users/{userId}: Atualiza informações de um usuário por ID.<br>
 DELETE /v1/users/{userId}: Deleta um usuário por ID.<br>
 POST /v1/users/{userId}/accounts: Cria uma nova conta para um usuário.<br>
-GET /v1/users/{userId}/accounts: Lista todas as contas de um usuário.<br>
-User: Representa um usuário do sistema.<br>
+GET /v1/users/{userId}/accounts: Lista todas as contas de um usuário.
 
-## Tecnologias Utilizadas
-**Java**<br>
-**Spring Boot**<br>
-**Hibernate**<br>
-**JPA**
 # Como Executar o Projeto
 
 ### Instalar o JDK
