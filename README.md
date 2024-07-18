@@ -47,17 +47,29 @@ Verifique a instalação executando `java -version` no terminal.
 Baixe e instale o Maven a partir do site oficial.
 Verifique a instalação executando `mvn -version` no terminal.
 
+### Installar Docker
+Baixe e instale o Docker a partir do site oficial.
+Docker Compose é instalado junto com o Docker. Verifique a instalação executando docker-compose ```--version``` no terminal.
+
 ### Configurar o Banco de Dados
 Qualquer banco de dados compatível com JPA/Hibernate (PostgreSQL, MySQL)<br>
 Configure as credenciais e a URL do banco de dados no arquivo `application.properties`.
+
 ### Clone o repositório:
 ```
 git clone https://github.com/seu-usuario/lfr-investments.git
 ```
+
 ### Navegue até o diretório do projeto
 ```
 cd Java-Spring-Boot
 ```
+
+### Executar o Docker Compose
+```
+docker compose up
+```
+
 ### Compile e execute o projeto:
 ```
 ./mvnw spring-boot:run
